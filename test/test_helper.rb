@@ -6,7 +6,7 @@ ActiveRecord::Migrator.migrations_paths = [File.expand_path("../test/dummy/db/mi
 require "rails/test_help"
 
 require "rails/test_unit/reporter"
-Rails::TestUnitReporter.executable = 'bin/test'
+Rails::TestUnitReporter.executable = "bin/test"
 
 # Load fixtures from the dummy
 if ActiveSupport::TestCase.respond_to?(:fixture_path=)
