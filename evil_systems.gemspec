@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md", "CHANGELOG.md"]
 
-  spec.add_runtime_dependency "rails", ">= 6"
-  spec.add_runtime_dependency "capybara"
+  spec.add_dependency "zeitwerk", ">= 2"
+  spec.add_dependency "capybara"
 
   spec.add_development_dependency "standardrb", ">= 1.0.0"
 end

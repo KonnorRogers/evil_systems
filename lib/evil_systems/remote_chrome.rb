@@ -1,30 +1,42 @@
 module EvilSystems
   module RemoteChrome
-    URL = ENV["CHROME_URL"]
-    HOST, PORT =
-      if URL
-        URI.parse(URL).yield_self do |uri|
-          [uri.host, uri.port]
-        end
-      end
+    # @return [String, nil]
+    def self.url
+      ENV["CHROME_URL"]
+    end
 
+    # Current port
+    # @return Integer
+    def self.port
+      URI.parse(url).yield_self { |uri| uri.port }
+    end
+
+    # Current host
+    # @return [String, nil]
+    def self.host
+      URI.parse(url).yield_self { |uri| uri.host } if url
+    end
+
+    # Returns a hash with a :url key / value if a remote chrome url is found.
+    # @return [Hash{:url => String, nil}]
+    #
     def self.options
       # Check whether the remote chrome is running and configure the Capybara
       # driver for it.
-      remote_chrome =
-        begin
-          if URL.nil?
-            false
-          else
-            Socket.tcp(HOST, PORT, connect_timeout: 1).close
-            true
-          end
-        rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, SocketError
-          false
-        end
+      remote_chrome ? {url: url} : {}
+    end
 
-      remote_chrome ? {url: REMOTE_CHROME_URL} : {}
+    # Whether or not the socket could be connected
+    # @return [Boolean]
+    def self.remote_chrome
+      if url.nil?
+        false
+      else
+        Socket.tcp(host, port, connect_timeout: 1).close
+        true
+      end
+    rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, SocketError
+      false
     end
   end
 end
-
