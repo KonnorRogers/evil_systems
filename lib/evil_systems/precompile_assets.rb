@@ -4,7 +4,7 @@ module EvilSystems
   module PrecompileAssets
     # Precompile assets before running tests to avoid timeouts.
     # Do not precompile if webpack-dev-server is running (NOTE: MUST be launched with RAILS_ENV=test)
-    # @param task [String] ("assets:precompile") - the precompile task to run
+    # @param task [String, nil] ("assets:precompile") - the precompile task to run
     # @param silent [Boolean] (true) - silence build output and only show asset compilation and time spent compiling.
     def self.initial_setup(task: "assets:precompile", silent: true)
       $stdout.puts "\n🐢  Precompiling assets.\n"
