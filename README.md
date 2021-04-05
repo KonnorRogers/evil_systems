@@ -28,7 +28,7 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 ```ruby
 # Gemfile
 group :test do
-  gem 'evil_system_tests'
+  gem 'evil_system_tests', '~> 0.0.3'
 end
 ```
 
