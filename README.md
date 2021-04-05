@@ -3,18 +3,21 @@
 I write tests using Minitest and routinely reference [EvilMartians System
 of a Test blog post](https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
 for Minitest.) on best practices for system tests. In this blog post,
-they also have an opinionated way of setting up System Tests. There are 3 core issues with
-this setup:
+they also have an opinionated way of setting up System Tests.
 
-1.) The blog post was built with RSpec in mind
+`EvilSystems` offers 3 distinct advantages over the setup provided by
+EvilMartians System of a Test:
 
-2.) Constantly copying 5 files over into every new Rails app is annoying.
+1.) The blog post was built with RSpec in mind, but we use Minitest
+here!
 
-3.) File changes can end up out of date if more utilities are needed.
+2.) Constantly copying 5 files over into every new Rails app is annoying. Lets make that easier!
+
+3.) File changes can end up out of sync, a gem makes sure updates can be
+pushed to all users.
 
 `EvilSystems` is a quick, easy, reusable way to apply the SoaT concepts and settings
-to projects for system tests using Minitest and attempts the remedy the
-3 issues mentioned above.
+to projects for system tests using Minitest.
 
 Full API documentation can be found here:
 
@@ -22,15 +25,20 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```ruby
+# Gemfile
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver' # Even without selenium, this is still required as of Rails 6.1
-  gem 'capybara/cuprite' # optional
   gem 'evil_system_tests'
 end
+```
+
+Make sure the following 3 gems are in your `Gemfile` as well:
+
+```ruby
+# Gemfile
+gem 'capybara'
+gem 'selenium-webdriver' # Still required when using Cuprite as of Rails 6.1
+gem 'cuprite' # Optional
 ```
 
 And then execute:
@@ -47,24 +55,23 @@ Navigate to `test/application_system_test_case.rb` in your Rails app.
 
 Setup your file like so:
 
-```diff
+```ruby
 # test/application_system_test_case.rb
 
 require 'test_helper'
 
-+ # 'capybara' and 'capybara/cuprite' need to be defined for EvilSystems to work properly.
-+ require 'capybara'
-+ require 'capybara/cuprite'
+# 'capybara' and 'capybara/cuprite' need to be defined for EvilSystems to work properly.
+require 'capybara'
+require 'capybara/cuprite'
 
-+ require 'evil_systems'
+require 'evil_systems'
 
-+ EvilSystems.initial_setup
+EvilSystems.initial_setup
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
--  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
-+  driven_by :cuprite
+  driven_by :cuprite
 
-+ include EvilSystems::Helpers
+  include EvilSystems::Helpers
 end
 ```
 
