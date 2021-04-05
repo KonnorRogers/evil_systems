@@ -8,6 +8,7 @@ for Minitest. System of a test is currently written for RSpec.
 
 Full API documentation can be found here:
 
+https://rdoc.info/github/paramagicdev/evil_systems/main
 
 ## Installation
 
