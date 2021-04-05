@@ -2,7 +2,7 @@
 
 I write tests using Minitest and routinely reference [EvilMartians System
 of a Test blog post](https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
-for Minitest.) on best practices for system tests. In this blog post,
+for best practices for system tests. In this blog post,
 they also have an opinionated way of setting up System Tests.
 
 `EvilSystems` offers 3 distinct advantages over the setup provided by
