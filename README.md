@@ -90,9 +90,9 @@ If neither are defined, it will then default to `"0.0.0.0"`
 
 </details>
 
-- [x] - `Capybara.server_host = "0.0.0.0"`
+- [x] - `Capybara.server_host = "0.0.0.0"` Make server listening on all hosts
 
-- [x] - `Capybara.default_max_wait_time = 2`
+- [x] - `Capybara.default_max_wait_time = 2` Dont spend forever waiting for matchers
 
 - [x] - `Capybara.default_normalize_ws = true` normalizes whitespace in `has_text?` and similar matchers.
 
