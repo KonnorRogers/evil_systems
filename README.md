@@ -25,7 +25,12 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'evil_system_tests'
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver' # Even without selenium, this is still required as of Rails 6.1
+  gem 'capybara/cuprite' # optional
+  gem 'evil_system_tests'
+end
 ```
 
 And then execute:
