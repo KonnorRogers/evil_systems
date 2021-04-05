@@ -31,7 +31,7 @@ Navigate to `test/application_system_test_case.rb` in your Rails app.
 
 Setup your file like so:
 
-```rb
+```diff
 # test/application_system_test_case.rb
 
 require 'test_helper'
