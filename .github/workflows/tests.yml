@@ -1,0 +1,31 @@
+name: Tests and Linting
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: Tests
+      env:
+      run: |
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        ./bin/tests
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        bundler-cache: true
+
+    - name: lint
+      run: |
+        bundle exec standardrb .
