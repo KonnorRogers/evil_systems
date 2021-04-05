@@ -1,10 +1,17 @@
-# EvilSystemTests
+# Purpose
 
-Why does this exist?
+I write tests using Minitest and routinely reference [EvilMartians System
+of a Test blog post](https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
+for Minitest.) on best practices for system tests. In this blog post,
+they also have an opinionated way of setting up System Tests. There are 3 core issues with
+this setup:
 
-I wanted a quick, easy, reusable way to use the settings put forth in
-[EvilMartians System of a Test blog post](https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
-for Minitest. System of a test is currently written for RSpec.
+1.) The blog post was built with RSpec in mind
+2.) Constantly copying 5 files over into every new Rails app is annoying.
+3.) File changes can end up out of date if more utilities are needed.
+
+`EvilSystems` is a quick, easy, reusable way to apply the SoaT concepts and settings
+to projects for system tests using Minitest.
 
 Full API documentation can be found here:
 
