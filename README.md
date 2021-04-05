@@ -130,8 +130,7 @@ dom_id(*args)
 #### SessionHelpers
 
 ```rb
-# Small wrapper around Capybara.using_session thats easy to call from an
-instance
+# Small wrapper around Capybara.using_session thats easy to call from an instance
 within_session(name_or_session, &block)
 
 # Remove all cookie banners
