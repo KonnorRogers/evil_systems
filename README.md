@@ -36,8 +36,7 @@ Setup your file like so:
 
 require 'test_helper'
 
-+ # 'capybara' and 'capybara/cuprite' need to be defined for EvilSystems to
-work properly.
++ # 'capybara' and 'capybara/cuprite' need to be defined for EvilSystems to work properly.
 + require 'capybara'
 + require 'capybara/cuprite'
 
