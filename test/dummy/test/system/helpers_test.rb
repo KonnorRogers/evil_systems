@@ -19,7 +19,7 @@ class HelpersTest < ApplicationSystemTestCase
 
   test "Should take a screenshot" do
     screen_shot_path = ::Rails.root.join("tmp/capybara/screenshots/1_test_Should_take_a_screenshot.png")
-    FileUtils.rm screen_shot_path
+    FileUtils.rm screen_shot_path if File.exist?(screen_shot_path)
     take_screenshot
     assert File.exist?(screen_shot_path)
   end
