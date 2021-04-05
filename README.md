@@ -75,8 +75,10 @@ are compiling, and how long the compilation took.
 
 [x] - Automatically registers a `:cuprite` driver if `Capybara::Cuprite`
 is defined.
+
 [x] - Automatically sets Capybara's default and javascript driver to
 `:cuprite`
+
 [x] - Automatically sets `Capybara.app_host`
 
 <details>
@@ -89,12 +91,15 @@ If neither are defined, it will then default to `"0.0.0.0"`
 </details>
 
 [x] - `Capybara.server_host = "0.0.0.0"`
+
 [x] - `Capybara.default_max_wait_time = 2`
-[x] - `Capybara.default_normalize_ws = true` normalizes whitespace in
-`has_text?` and similar matchers.
-[x] - Sets the `Capybara.save_path` Uses `ENV["CAPYBARA_ARTIFACTS"]` and
-falls back to `"./tmp/capybara"`
+
+[x] - `Capybara.default_normalize_ws = true` normalizes whitespace in `has_text?` and similar matchers.
+
+[x] - Sets the `Capybara.save_path` Uses `ENV["CAPYBARA_ARTIFACTS"]` and falls back to `"./tmp/capybara"`
+
 [x] - Sets a `REMOTE_CHROME` instance if a `ENV["CHROME_URL"]` is found
+
 [x] - Prepends a `last_used_session` attribute accessor to Capybara.
 
 ### Helpers
