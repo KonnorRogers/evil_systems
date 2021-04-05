@@ -150,13 +150,13 @@ debug
 
 ### Env Variables
 
+ENV variables used by this gem.
+
 ```rb
 ENV["APP_HOST"] # used for Capybara.app_host
 ENV["CAPYBARA_ARTIFACTS"] # used for Capybara.save_path
 ENV["CHROME_URL"] # used for setting a remote chrome instance for Cuprite
 ```
-
-ENV variables used by this gem.
 
 ## I don't want to use Cuprite.
 
