@@ -72,6 +72,12 @@ are compiling, and how long the compilation took.
 `:task` defaults to `assets:precompile`, System of a test uses
 `webpacker:compile`.
 
+Example:
+
+```rb
+EvilSystems.initial_setup(task: "webpacker:compile", silent: false)
+```
+
 ### Settings
 
 - [x] - Automatically registers a `:cuprite` driver if `Capybara::Cuprite`
