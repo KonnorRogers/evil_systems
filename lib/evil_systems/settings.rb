@@ -22,8 +22,6 @@ module EvilSystems
 
     # The setup to be run prior to the test suite
     def self.initial_setup
-      require "capybara"
-
       prepend_session_to_capybara
 
       ::Capybara.app_host = app_host

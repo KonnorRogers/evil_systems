@@ -11,6 +11,7 @@ module EvilSystems
     # @return [void]
     def self.initial_setup
       return unless defined? Capybara::Cuprite
+
       remote_options = RemoteChrome.options
       ::Capybara.register_driver(:cuprite) do |app|
         ::Capybara::Cuprite::Driver.new(

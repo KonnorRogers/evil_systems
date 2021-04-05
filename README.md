@@ -1,10 +1,16 @@
 # EvilSystemTests
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+Why does this exist?
+
+I wanted a quick, easy, reusable way to use the settings put forth in
+[EvilMartians System of a Test blog post] (https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
+for Minitest. System of a test is currently written for RSpec.
+
+Full API documentation can be found here:
+
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -14,20 +20,14 @@ gem 'evil_system_tests'
 And then execute:
 
 ```bash
-$ bundle
-```
-
-Or install it yourself as:
-
-```bash
-$ gem install evil_system_tests
+bundle
 ```
 
 ## Setup
 
 ### Minitest
 
-Navigate to `test/application_system_test_case.rb`
+Navigate to `test/application_system_test_case.rb` in your Rails app.
 
 Setup your file like so:
 
@@ -36,27 +36,144 @@ Setup your file like so:
 
 require 'test_helper'
 
++ # 'capybara' and 'capybara/cuprite' need to be defined for EvilSystems to
+work properly.
++ require 'capybara'
++ require 'capybara/cuprite'
+
 + require 'evil_systems'
 
 + EvilSystems.initial_setup
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
 -  driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
-+  driven_by :cuprite, using: :chrome, screen_size: [1400, 1400]
++  driven_by :cuprite
 
 + include EvilSystems::Helpers
-
-+ def setup
-+   EvilSystems.setup
-+ end
 end
 ```
 
 ### RSpec
 
-*Coming Soon*
+*Maybe in the future?*
 
 ## Whats included?
 
+## Usage
+
+`EvilSystems.initial_setup` takes two keyword arguments, `:task`, and
+`silent`.
+
+Both arguments have to do with precompiling assets.
+`:silent` by default is set to `true` and will only tell you when assets
+are compiling, and how long it took.
+`:task` defaults to `assets:precompile`, System of a test uses
+`webpacker:compile`.
+
+### Settings
+
+[x] - Automatically registers a `:cuprite` driver if `Capybara::Cuprite`
+is defined.
+[x] - Automatically sets Capybara's default and javascript driver to
+`:cuprite`
+[x] - Automatically sets `Capybara.app_host`
+
+<details>
+<summary>How `app_host` is set</summary>
+
+`app_host` will first use `ENV["APP_HOST"]` then falls back to the systems
+`hostname` if the `APP_HOST` ENV var is not defined.
+If neither are defined, it will then default to `"0.0.0.0"`
+
+</details>
+
+[x] - `Capybara.server_host = "0.0.0.0"`
+[x] - `Capybara.default_max_wait_time = 2`
+[x] - `Capybara.default_normalize_ws = true` normalizes whitespace in
+`has_text?` and similar matchers.
+[x] - Sets the `Capybara.save_path` Uses `ENV["CAPYBARA_ARTIFACTS"]` and
+falls back to `"./tmp/capybara"`
+[x] - Sets a `REMOTE_CHROME` instance if a `ENV["CHROME_URL"]` is found
+[x] - Prepends a `last_used_session` attribute accessor to Capybara.
+
+### Helpers
+
+`EvilSystems::Helpers`
+
+Automatically includes `ActionView::RecordIdentifier` if Rails is
+defined.
+
+Also includes:
+
+```rb
+EvilSystems::CupriteHelpers
+EvilSystems::SessionHelpers
+```
+
+#### Regular Helpers
+
+```rb
+# The full path to be prepended to a screen shot
+absolute_image_path
+
+# The relative path to be prepended to a screenshot message to make it clickable
+image_path
+
+# Make failure screenshots compatible with multi-session setup
+take_screenshot
+
+# Prepends a '#' to the +dom_id+ method provided by Rails
+dom_id(*args)
+```
+
+#### SessionHelpers
+
+```rb
+# Small wrapper around Capybara.using_session thats easy to call from an
+instance
+within_session(name_or_session, &block)
+
+# Remove all cookie banners
+mark_all_banners_as_read!
+```
+
+#### Cuprite Helpers
+
+```rb
+# pauses the page
+pause
+
+# Opens a Pry or IRB repl. Will use Pry if Pry is defined, fallsback
+to debugging with IRB
+debug
+```
+
+### Env Variables
+
+```rb
+ENV["APP_HOST"] # used for Capybara.app_host
+ENV["CAPYBARA_ARTIFACTS"] # used for Capybara.save_path
+ENV["CHROME_URL"] # used for setting a remote chrome instance for
+Cuprite
+```
+
+ENV variables used by this gem.
+
+## I don't want to use Cuprite.
+
+Thats fine! I totally get it. Selenium is battle tested. Simply remove
+the `require "capybara/cuprite"` line and `EvilSystems` will detect that
+Cuprite is not defined and not setup a driver for you and not include
+Cuprite helpers.
+
+## Omissions and differences
+
+- Will use `assets:precompile` instead of `webpacker:compile` before
+  systems tests (configurable)
+
+- Does not set the `Rails.application.default_url_options[:host]` due to
+  parallelization issues found while testing the dummy app.
+
 ## License
+
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
