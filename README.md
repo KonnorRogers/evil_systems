@@ -144,7 +144,7 @@ mark_all_banners_as_read!
 pause
 
 # Opens a Pry or IRB repl. Will use Pry if Pry is defined, fallsback
-to debugging with IRB
+# to debugging with IRB
 debug
 ```
 
