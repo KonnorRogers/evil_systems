@@ -11,7 +11,8 @@ this setup:
 3.) File changes can end up out of date if more utilities are needed.
 
 `EvilSystems` is a quick, easy, reusable way to apply the SoaT concepts and settings
-to projects for system tests using Minitest.
+to projects for system tests using Minitest and attempts the remedy the
+3 issues mentioned above.
 
 Full API documentation can be found here:
 
