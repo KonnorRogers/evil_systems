@@ -64,8 +64,10 @@ end
 `silent`.
 
 Both arguments have to do with precompiling assets.
+
 `:silent` by default is set to `true` and will only tell you when assets
-are compiling, and how long it took.
+are compiling, and how long the compilation took.
+
 `:task` defaults to `assets:precompile`, System of a test uses
 `webpacker:compile`.
 
