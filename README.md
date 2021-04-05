@@ -7,7 +7,9 @@ they also have an opinionated way of setting up System Tests. There are 3 core i
 this setup:
 
 1.) The blog post was built with RSpec in mind
+
 2.) Constantly copying 5 files over into every new Rails app is annoying.
+
 3.) File changes can end up out of date if more utilities are needed.
 
 `EvilSystems` is a quick, easy, reusable way to apply the SoaT concepts and settings
