@@ -3,7 +3,7 @@
 Why does this exist?
 
 I wanted a quick, easy, reusable way to use the settings put forth in
-[EvilMartians System of a Test blog post] (https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
+[EvilMartians System of a Test blog post](https://evilmartians.com/chronicles/system-of-a-test-setting-up-end-to-end-rails-testing)
 for Minitest. System of a test is currently written for RSpec.
 
 Full API documentation can be found here:
