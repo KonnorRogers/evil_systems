@@ -16,7 +16,7 @@ class RemoteChromeTest < ApplicationSystemTestCase
     assert_equal ::EvilSystems::RemoteChrome.port, 3459
     assert_equal ::EvilSystems::RemoteChrome.host, "0.0.0.0"
 
-    ::EvilSystems::RemoteChrome.stub :remote_chrome, true do
+    ::EvilSystems::RemoteChrome.stub :connected?, true do
       assert_equal ::EvilSystems::RemoteChrome.options, {url: ::EvilSystems::RemoteChrome.url}
     end
   end
