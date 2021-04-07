@@ -1,10 +1,28 @@
 name: Tests and Linting
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    services:
+      chrome:
+        image: browserless/chrome:1.31-chrome-stable
+        ports: ["3000:3000"]
+        options: -e CONNECTION_TIMEOUT=600000
+
+    env:
+      CI: true
+      CHROME_URL: http://localhost:3000
+      RAILS_ENV: test
+
     strategy:
       matrix:
         ruby: [ '2.7', '3.0']
@@ -16,7 +34,9 @@ jobs:
         bundler-cache: true
 
     - name: Tests
-      run: bundle exec rake test
+      run: |
+        cd test/dummy && bundle exec rails db:create && bundle exec rails db:migrate && cd -
+        bundle exec rake test
   lint:
     runs-on: ubuntu-latest
     steps:

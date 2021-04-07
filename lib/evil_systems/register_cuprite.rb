@@ -12,13 +12,22 @@ module EvilSystems
     def self.initial_setup
       return unless defined? Capybara::Cuprite
 
+      begin
+        process_timeout = Integer(ENV.fetch("PROCESS_TIMEOUT", 5))
+      rescue
+        process_timeout = 5
+      end
+
       remote_options = RemoteChrome.options
+
       ::Capybara.register_driver(:cuprite) do |app|
         ::Capybara::Cuprite::Driver.new(
           app,
           **{
             window_size: [1200, 800],
-            browser_options: {"no-sandbox" => nil},
+            browser_options: RemoteChrome.connected? ? {"no-sandbox" => nil} : {},
+            headless: ENV.fetch("CI", "true") == "true",
+            process_timeout: process_timeout,
             inspector: true
           }.merge(remote_options)
         )

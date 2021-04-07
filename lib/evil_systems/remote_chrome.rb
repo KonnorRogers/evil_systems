@@ -23,12 +23,12 @@ module EvilSystems
     def self.options
       # Check whether the remote chrome is running and configure the Capybara
       # driver for it.
-      remote_chrome ? {url: url} : {}
+      connected? ? {url: url} : {}
     end
 
     # Whether or not the socket could be connected
     # @return [Boolean]
-    def self.remote_chrome
+    def self.connected?
       if url.nil?
         false
       else

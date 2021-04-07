@@ -28,7 +28,7 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 ```ruby
 # Gemfile
 group :test do
-  gem 'evil_system_tests', '~> 0.0.3'
+  gem 'evil_system_tests', '~> 0.1.0'
 end
 ```
 
@@ -190,6 +190,8 @@ ENV variables used by this gem.
 ENV["APP_HOST"] # used for Capybara.app_host
 ENV["CAPYBARA_ARTIFACTS"] # used for Capybara.save_path
 ENV["CHROME_URL"] # used for setting a remote chrome instance for Cuprite
+ENV["PROCESS_TIMEOUT"] # How long to wait before killing the process, default is 5 seconds
+ENV["CI"] # Whether or not to run Cuprite in headless mode, defaults to true.
 ```
 
 ## I don't want to use Cuprite.
