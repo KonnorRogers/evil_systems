@@ -28,7 +28,7 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 ```ruby
 # Gemfile
 group :test do
-  gem 'evil_system_tests', '~> 0.1.0'
+  gem 'evil_systems', '~> 0.1.0'
 end
 ```
 
@@ -37,8 +37,8 @@ Make sure the following 3 gems are in your `Gemfile` as well:
 ```ruby
 # Gemfile
 gem 'capybara'
-gem 'selenium-webdriver' # Still required when using Cuprite as of Rails 6.1
 gem 'cuprite' # Optional
+gem 'selenium-webdriver' # Not required if using Cuprite and using Rails >= 6.1
 ```
 
 And then execute:
@@ -166,9 +166,6 @@ dom_id(*args)
 ```rb
 # Small wrapper around Capybara.using_session thats easy to call from an instance
 within_session(name_or_session, &block)
-
-# Remove all cookie banners
-mark_all_banners_as_read!
 ```
 
 #### Cuprite Helpers

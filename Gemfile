@@ -9,7 +9,6 @@ group :development do
   gem "puma"
   gem "sqlite3"
   gem "cuprite"
-  gem "selenium-webdriver"
 end
 
 # To use a debugger
