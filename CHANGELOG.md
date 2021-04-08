@@ -1,3 +1,9 @@
+## 0.1.1
+
+- Fix readme issue
+- Remove mark_all_banners_as_read
+- Remove selenium-webdriver
+
 ## 0.1.0
 
 - Allow the Cuprite driver to be configured with ENV variables for headless mode and process_timeouts.
