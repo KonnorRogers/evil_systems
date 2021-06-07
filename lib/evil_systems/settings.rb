@@ -31,7 +31,7 @@ module EvilSystems
 
       # Silence puma
       ::Capybara.server = :puma, {Silent: true}
-      
+
       # Don't wait too long in `have_xyz` matchers
       ::Capybara.default_max_wait_time = 2
 
