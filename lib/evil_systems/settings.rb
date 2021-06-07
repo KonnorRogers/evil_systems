@@ -28,10 +28,10 @@ module EvilSystems
 
       # Make server listening on all hosts
       ::Capybara.server_host = "0.0.0.0"
-      
+
       # Silence puma
       ::Capybara.server = :puma, {Silent: true}
-
+      
       # Don't wait too long in `have_xyz` matchers
       ::Capybara.default_max_wait_time = 2
 
