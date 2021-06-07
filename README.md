@@ -176,7 +176,7 @@ pause
 
 # Opens a Pry or IRB repl. Will use Pry if Pry is defined, fallsback
 # to debugging with IRB
-debug
+debug binding
 ```
 
 ### Env Variables
