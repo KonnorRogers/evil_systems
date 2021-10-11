@@ -28,7 +28,7 @@ module EvilSystems
             browser_options: RemoteChrome.connected? ? {"no-sandbox" => nil} : {},
             headless: ENV.fetch("CI", "true") == "true",
             process_timeout: process_timeout,
-            slowmo: ENV.fetch("SLOWMO", 0),
+            slowmo: ENV.fetch("SLOWMO", 0).to_f,
             inspector: true
           }.merge(remote_options)
         )
