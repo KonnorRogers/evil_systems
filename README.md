@@ -189,6 +189,7 @@ ENV["CAPYBARA_ARTIFACTS"] # used for Capybara.save_path
 ENV["CHROME_URL"] # used for setting a remote chrome instance for Cuprite
 ENV["PROCESS_TIMEOUT"] # How long to wait before killing the process, default is 5 seconds
 ENV["CI"] # Whether or not to run Cuprite in headless mode, defaults to true.
+ENV["SLOWMO"] # Delay in seconds before sending a command (default 0). Also see https://github.com/rubycdp/ferrum#customization
 ```
 
 ## I don't want to use Cuprite.
