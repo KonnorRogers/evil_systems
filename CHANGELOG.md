@@ -1,3 +1,7 @@
+## 0.1.3
+
+- Add Slowmo option
+
 ## 0.1.1
 
 - Fix readme issue
