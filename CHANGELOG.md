@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Disable animations by default @julianrubisch <https://github.com/ParamagicDev/evil_systems/commit/cf72d1189c8bd8b72f130909f209f543a52aaf50>
+
 ## 0.1.3
 
 - Add Slowmo option
