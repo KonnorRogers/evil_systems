@@ -40,6 +40,9 @@ module EvilSystems
 
       # Where to store artifacts (e.g. screenshots, downloaded files, etc.)
       ::Capybara.save_path = ENV.fetch("CAPYBARA_ARTIFACTS", "./tmp/capybara")
+
+      # Disable animations in Capybara by default
+      ::Capybara.disable_animation = ENV.fetch("DISABLE_ANIMATION", "true") == "true"
     end
 
     private_class_method def self.prepend_session_to_capybara
