@@ -6,7 +6,8 @@ module EvilSystems
     # Finds the current app host via ENV["APP_HOST"], `hostname`, or defaults to "0.0.0.0"
     # @return [String]
     def self.app_host
-      "http://#{ENV.fetch("APP_HOST", "0.0.0.0")}"
+      hostname = `hostname` || "0.0.0.0"
+      "http://#{ENV.fetch("APP_HOST", hostname.strip.downcase)}"
     end
 
     # Finds the current cookie domain
