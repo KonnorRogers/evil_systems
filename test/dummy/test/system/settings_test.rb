@@ -11,26 +11,12 @@ class SettingsTest < ApplicationSystemTestCase
     ENV["APP_HOST"] = old_app_host
   end
 
-  test "Capybara app host set without env variable" do
-    old_app_host = ENV["APP_HOST"]
-    ENV.delete("APP_HOST")
-
-    hostname = `hostname`.strip.downcase
-    assert_equal ::EvilSystems::Settings.app_host, "http://#{hostname}"
-    assert_equal ::EvilSystems::Settings.cookie_domain, hostname.to_s
-
-    ENV["APP_HOST"] = old_app_host
-  end
-
   test "When no hostname or app_host found" do
     old_app_host = ENV["APP_HOST"]
     ENV.delete("APP_HOST")
 
-    # Stubs backticks call so hostname returns nil
-    ::EvilSystems::Settings.stub :`, nil do
-      assert_equal ::EvilSystems::Settings.app_host, "http://0.0.0.0"
-      assert_equal ::EvilSystems::Settings.cookie_domain, ".0.0.0.0"
-    end
+    assert_equal ::EvilSystems::Settings.app_host, "http://0.0.0.0"
+    assert_equal ::EvilSystems::Settings.cookie_domain, ".0.0.0.0"
 
     ENV["APP_HOST"] = old_app_host
   end
