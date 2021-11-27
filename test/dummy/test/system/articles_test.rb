@@ -7,7 +7,7 @@ class ArticlesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit articles_url
-    assert_selector "h1", text: "Articles"
+    assert_selector "h1", text: "Articles", wait: 5
   end
 
   test "creating a Article" do
@@ -24,7 +24,7 @@ class ArticlesTest < ApplicationSystemTestCase
 
   test "updating a Article" do
     visit articles_url
-    click_on "Edit", match: :first
+    click_on "Edit", match: :first, wait: 5
 
     fill_in "Text", with: @article.text
     fill_in "Title", with: @article.title
