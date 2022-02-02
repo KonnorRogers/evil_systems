@@ -69,7 +69,7 @@ require 'evil_systems'
 EvilSystems.initial_setup
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  driven_by :cuprite
+  driven_by :evil_cuprite
 
   include EvilSystems::Helpers
 end
@@ -102,11 +102,11 @@ EvilSystems.initial_setup(task: "webpacker:compile", silent: false)
 
 ### Settings
 
-- [x] - Automatically registers a `:cuprite` driver if `Capybara::Cuprite`
+- [x] - Automatically registers a `:evil_cuprite` driver if `Capybara::Cuprite`
 is defined.
 
 - [x] - Automatically sets Capybara's default and javascript driver to
-`:cuprite`
+`:evil_cuprite`
 
 - [x] - Automatically sets `Capybara.app_host`
 

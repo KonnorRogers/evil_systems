@@ -6,7 +6,7 @@ module EvilSystems
   # See https://github.com/rubycdp/cuprite
   module RegisterCuprite
     # Registers the Cuprite driver. Can be used via:
-    # driven_by :cuprite, using: :chrome, screen_size: [1400, 1400]
+    # driven_by :evil_cuprite, using: :chrome, screen_size: [1400, 1400]
     # The initial setup prior to the class ApplicationSystemTestCase, runs before the entire test suite.
     # @return [void]
     def self.initial_setup
@@ -20,7 +20,7 @@ module EvilSystems
 
       remote_options = RemoteChrome.options
 
-      ::Capybara.register_driver(:cuprite) do |app|
+      ::Capybara.register_driver(:evil_cuprite) do |app|
         ::Capybara::Cuprite::Driver.new(
           app,
           **{
@@ -37,4 +37,4 @@ module EvilSystems
   end
 end
 
-Capybara.default_driver = Capybara.javascript_driver = :cuprite
+Capybara.default_driver = Capybara.javascript_driver = :evil_cuprite

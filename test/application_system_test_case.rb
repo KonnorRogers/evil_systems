@@ -7,7 +7,7 @@ require "evil_systems"
 EvilSystems.initial_setup
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  driven_by :cuprite
+  driven_by :evil_cuprite
 
   include EvilSystems::Helpers
 end
