@@ -11,9 +11,12 @@ module EvilSystems
   # @see Settings#initial_setup
   # @see RegisterCuprite#initial_setup
   # @see PrecompileAssets#initial_setup
-  def self.initial_setup(task: "assets:precompile", silent: true)
+  def self.initial_setup(task: "assets:precompile", silent: true, skip_task: false)
     Settings.initial_setup
     RegisterCuprite.initial_setup
+
+    return if skip_task
+
     PrecompileAssets.initial_setup(task: task, silent: silent)
   end
 end
