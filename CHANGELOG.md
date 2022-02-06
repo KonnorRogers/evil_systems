@@ -5,7 +5,9 @@
 <https://github.com/ParamagicDev/evil_systems/pull/7>
 
 - Added `wait_for_network_idle!`
+- Added `:skip_task` to avoid rake tasks all together.
 <https://github.com/evil_systems/pull/8>
+
 - Updated test suite to Rails 7
 
 ## 0.2.0

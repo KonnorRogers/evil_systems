@@ -83,16 +83,18 @@ end
 
 ## Usage
 
-`EvilSystems.initial_setup` takes two keyword arguments, `:task`, and
-`silent`.
+`EvilSystems.initial_setup` takes three keyword arguments, `:task`, and
+`silent`, `skip_task`.
 
-Both arguments have to do with precompiling assets.
+They all have to do with precompiling assets.
 
 `:silent` by default is set to `true` and will only tell you when assets
 are compiling, and how long the compilation took.
 
 `:task` defaults to `assets:precompile`, System of a test uses
 `webpacker:compile`.
+
+`:skip_task` when `true` says you dont want to run any Rake tasks. Default is `false`
 
 Example:
 
@@ -177,6 +179,9 @@ pause
 # Opens a Pry or IRB repl. Will use Pry if Pry is defined, fallsback
 # to debugging with IRB
 debug binding
+
+# waits to make sure theres no active connections.
+wait_for_network_idle!
 ```
 
 ### Env Variables
