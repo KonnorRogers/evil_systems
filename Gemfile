@@ -5,10 +5,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 group :development do
-  gem "rails", ">= 6", "< 7"
+  gem "rails", "> 7", "< 8"
   gem "puma"
   gem "sqlite3"
-  gem "cuprite"
+  gem "cuprite", "~> 0.13"
 end
 
 # To use a debugger
