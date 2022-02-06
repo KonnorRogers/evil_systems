@@ -1,3 +1,9 @@
+## 1.0.0
+
+- 🚨 BREAKING CHANGE - Renamed `:cuprite` driver to
+`:evil_cuprite` to avoid naming collision in Rails 7.
+<https://github.com/ParamagicDev/evil_systems/pull/7>
+
 ## 0.2.0
 
 - Disable animations by default @julianrubisch <https://github.com/ParamagicDev/evil_systems/commit/cf72d1189c8bd8b72f130909f209f543a52aaf50>
