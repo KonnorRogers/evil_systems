@@ -4,6 +4,10 @@
 `:evil_cuprite` to avoid naming collision in Rails 7.
 <https://github.com/ParamagicDev/evil_systems/pull/7>
 
+- Added `wait_for_network_idle!`
+<https://github.com/evil_systems/pull/8>
+- Updated test suite to Rails 7
+
 ## 0.2.0
 
 - Disable animations by default @julianrubisch <https://github.com/ParamagicDev/evil_systems/commit/cf72d1189c8bd8b72f130909f209f543a52aaf50>

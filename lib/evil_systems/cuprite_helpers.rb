@@ -18,5 +18,11 @@ module EvilSystems
 
       page.driver.pause
     end
+
+    # Convenience method to access the drivers `wait_for_network_idle`
+    # @see https://github.com/rubycdp/cuprite/blob/47d8949f30dea3d97dba70d8643abce861e0d652/README.md#network-traffic
+    def wait_for_network_idle!
+      page.driver.wait_for_network_idle
+    end
   end
 end
