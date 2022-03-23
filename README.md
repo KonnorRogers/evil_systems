@@ -25,11 +25,8 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 
 ## Installation
 
-```ruby
-# Gemfile
-group :test do
-  gem 'evil_systems', '~> 1.0'
-end
+```bash
+bundle add evil_systems
 ```
 
 Make sure the following 3 gems are in your `Gemfile` as well:
@@ -39,12 +36,6 @@ Make sure the following 3 gems are in your `Gemfile` as well:
 gem 'capybara'
 gem 'cuprite' # Optional
 gem 'selenium-webdriver' # Not required if using Cuprite and using Rails >= 6.1
-```
-
-And then execute:
-
-```bash
-bundle
 ```
 
 ## Setup
