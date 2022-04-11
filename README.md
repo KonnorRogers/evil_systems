@@ -26,16 +26,19 @@ https://rdoc.info/github/paramagicdev/evil_systems/main
 ## Installation
 
 ```bash
-bundle add evil_systems
+bundle add evil_systems --group=test
 ```
 
 Make sure the following 3 gems are in your `Gemfile` as well:
 
 ```ruby
 # Gemfile
-gem 'capybara'
-gem 'cuprite' # Optional
-gem 'selenium-webdriver' # Not required if using Cuprite and using Rails >= 6.1
+
+group :test do
+  gem 'capybara'
+  gem 'cuprite' # Optional
+  gem 'selenium-webdriver' # Not required if using Cuprite and using Rails >= 6.1
+end
 ```
 
 > Note: `bundle add` by default appends the gem to the bottom of your `Gemfile`, which means not in the `test` group of gems. If the `capybara` gem is in the `test` group, but `evil_systems` is not, you will not be able to load your application in production. Be sure that `evil_systems` is placed in the same group as `capybara` (we recommend the `test` group).
