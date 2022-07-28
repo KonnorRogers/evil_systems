@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Feature: add `driver_options` to `initial_setup`
+
 ## 1.0.0
 
 - 🚨 BREAKING CHANGE - Renamed `:cuprite` driver to
