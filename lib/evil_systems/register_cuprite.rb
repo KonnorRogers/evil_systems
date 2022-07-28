@@ -9,7 +9,7 @@ module EvilSystems
     # driven_by :evil_cuprite, using: :chrome, screen_size: [1400, 1400]
     # The initial setup prior to the class ApplicationSystemTestCase, runs before the entire test suite.
     # @return [void]
-    def self.initial_setup
+    def self.initial_setup(driver_options: {})
       return unless defined? Capybara::Cuprite
 
       begin
@@ -30,7 +30,7 @@ module EvilSystems
             process_timeout: process_timeout,
             slowmo: ENV.fetch("SLOWMO", 0).to_f,
             inspector: true
-          }.merge(remote_options)
+          }.merge(remote_options).merge(driver_options)
         )
       end
     end
