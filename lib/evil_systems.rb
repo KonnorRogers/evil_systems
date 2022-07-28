@@ -11,9 +11,9 @@ module EvilSystems
   # @see Settings#initial_setup
   # @see RegisterCuprite#initial_setup
   # @see PrecompileAssets#initial_setup
-  def self.initial_setup(task: "assets:precompile", silent: true, skip_task: false)
+  def self.initial_setup(task: "assets:precompile", silent: true, skip_task: false, driver_options: {})
     Settings.initial_setup
-    RegisterCuprite.initial_setup
+    RegisterCuprite.initial_setup(driver_options: driver_options)
 
     return if skip_task
 
