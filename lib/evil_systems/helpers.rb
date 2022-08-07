@@ -27,7 +27,7 @@ module EvilSystems
     # Make failure screenshots compatible with multi-session setup
     # @return void
     def take_screenshot
-      return super unless ::Capybara.last_used_session
+      return super unless ::Capybara.respond_to?(:last_used_session) && ::Capybara.last_used_session
 
       ::Capybara.using_session(::Capybara.last_used_session) { super }
     end
