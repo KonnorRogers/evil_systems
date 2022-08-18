@@ -11,7 +11,7 @@ module EvilSystems
     # (Rails screenshots path is not configurable https://github.com/rails/rails/blob/49baf092439fc74fc3377b12e3334c3dd9d0752f/actionpack/lib/action_dispatch/system_testing/test_helpers/screenshot_helper.rb#L79)
     # @return [String]
     def absolute_image_path
-      save_path = ::Capybara.save_path.present? || Rails.root.join("tmp/screenshots/#{image_name}")
+      save_path = ::Capybara.save_path.presence || Rails.root.join("tmp/screenshots/#{image_name}")
       return ::Rails.root.join("#{save_path}/screenshots/#{image_name}.png") if defined? ::Rails
 
       File.join("#{save_path}/screenshots/#{image_name}.png")
