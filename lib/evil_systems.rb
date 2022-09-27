@@ -12,6 +12,7 @@ module EvilSystems
   # @see RegisterCuprite#initial_setup
   # @see PrecompileAssets#initial_setup
   def self.initial_setup(task: "assets:precompile", silent: true, skip_task: false, driver_options: {})
+    require "capybara"
     Settings.initial_setup
     RegisterCuprite.initial_setup(driver_options: driver_options)
 
@@ -21,4 +22,11 @@ module EvilSystems
   end
 end
 
-require "evil_systems/engine" if defined?(Rails)
+
+begin
+  require "rails"
+  require "evil_systems/engine"
+rescue LoadError
+  # no-op. Not in a rails env.
+end
+

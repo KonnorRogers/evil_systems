@@ -10,7 +10,12 @@ module EvilSystems
     # The initial setup prior to the class ApplicationSystemTestCase, runs before the entire test suite.
     # @return [void]
     def self.initial_setup(driver_options: {})
-      return unless defined? Capybara::Cuprite
+      begin
+        require "capybara"
+        require "capybara/cuprite"
+      rescue LoadError
+        return
+      end
 
       begin
         process_timeout = Integer(ENV.fetch("PROCESS_TIMEOUT", 5))
