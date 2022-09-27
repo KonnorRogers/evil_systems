@@ -1,3 +1,7 @@
+## 1.1.5
+
+- fix: autoload capybara and cuprite.
+
 ## 1.1.0
 
 - Feature: add `driver_options` to `initial_setup`
